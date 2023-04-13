@@ -36,17 +36,8 @@ flipper_df$cumulative_relative_freq <- cumsum(flipper_df$relative_freq)
 # the geom_text(aes(label = ...)) function, add the relative frequency as a percentage
 # above each column (hint: substitute the ... with the relative frequency values. Use
 # the round() function to choose the appropriate number of digits).
-ggplot(flipper_df, aes(x = flipper_length_mm, y = absolute_freq)) +
-  geom_col() +
-  geom_text(aes(label = paste0(
-    round(relative_freq * 100, digits = 1), "%")),
-    nudge_y = 3) +
-  labs(x = "Flipper length (10mm classes)",
-       y = "Absolute frequency",
-       title = "Flipper lengths distribution",
-       subtitle = "Percentages over the bars")
 
-png("./plots/flipper_lengths_distribution")
+# png("./plots/flipper_lengths_distribution")
 ggplot(flipper_df, aes(x = flipper_length_mm, y = absolute_freq)) +
   geom_col() +
   geom_text(aes(label = paste0(
@@ -56,7 +47,8 @@ ggplot(flipper_df, aes(x = flipper_length_mm, y = absolute_freq)) +
        y = "Absolute frequency",
        title = "Flipper lengths distribution",
        subtitle = "Percentages over the bars")
-dev.off()
+# dev.off()
+
 
     
     
