@@ -22,6 +22,10 @@ bill_depth_median <- median(penguins$bill_depth_mm, na.rm = TRUE)
 flipper_length_median <- median(penguins$flipper_length_mm, na.rm = TRUE)
 body_mass_median <- median(penguins$body_mass_g, na.rm = TRUE)
 
+# Alternative method for the mean:
+numeric_vars <- penguins[, 3:6] # get the column
+numeric_vars_mean <- colMeans(numeric_vars, na.rm = TRUE)
+
 # D. Create a function called stat_auto that simultaneously returns both the mean 
 # and the standard deviation of a given vector (hint: return an object of type list
 # or simply a vector). Then try it on the same numeric variables in C. to check the
@@ -53,4 +57,14 @@ stat_manual <- function(data_vec, removeNA = TRUE) {
   
   return (list("Mean" = avg, "SD" = stddev))
 }
+
+# Even after calculating summary statistics, it can be difficult to understand
+# the data. On the contrary, a simple graph could bring more information to our mind.
+# Adding color values for each penguin to separate the species.
+png("./plots/penguins")
+pCol <- c('#ff8301', '#bf5ccb', '#057076')
+names(pCol) <- c('Adelie', 'Chinstrap', 'Gentoo')
+plot(penguins, col = pCol[penguins$species], pch = 19, 
+     main = "Penguins")
+dev.off()
 
