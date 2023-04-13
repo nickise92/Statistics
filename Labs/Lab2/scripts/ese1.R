@@ -26,11 +26,11 @@ body_mass_median <- median(penguins$body_mass_g, na.rm = TRUE)
 # and the standard deviation of a given vector (hint: return an object of type list
 # or simply a vector). Then try it on the same numeric variables in C. to check the
 # results (hint: if you obtain NA maybe you forgot to remove NA terms in vecotr)
-stat_auto <- function(data_vec) {
-  data_mean <- mean(data_vec, na.rm = TRUE)
-  data_sd <- sd(data_vec, na.rm = TRUE)
-  
-  return (as.list(dataMean, dataSD))
+stat_auto <- function(data_vec, removeNA = TRUE) {
+  data_mean <- mean(data_vec, na.rm = removeNA)
+  data_sd <- sd(data_vec, na.rm = removeNA)
+  out <- list("Mean" = data_mean, "SD" = data_sd)
+  return (out)
 }
 
 bill_length <- stat_auto(penguins$bill_length_mm)
@@ -38,4 +38,19 @@ bill_depth <- stat_auto(penguins$bill_depth_mm)
 flipper_length <- stat_auto(penguins$flipper_length_mm)
 body_mass <- stat_auto(penguins$body_mass_g)
 
-# E. Create 
+# E. Create a function called stat_manual that simultaneusly returns both the mean
+# and the standard deviation of a given vector without using the mean() and the sd()
+# functions (hint: you can use length(), sum(), and na.omit() funtions). Then try it
+# on the same numeric variables in C. to check the results.
+stat_manual <- function(data_vec, removeNA = TRUE) {
+  if (removeNA == TRUE) {
+    data_vec <- na.omit(data_vec)
+  }
+  vec_len <- length(data_vec)
+  avg <- sum(data_vec)/vec_len
+  
+  stddev <- sqrt(sum((data_vec - avg)^2) / (vec_len - 1))
+  
+  return (list("Mean" = avg, "SD" = stddev))
+}
+
