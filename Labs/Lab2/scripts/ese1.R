@@ -61,7 +61,7 @@ stat_manual <- function(data_vec, removeNA = TRUE) {
 # Even after calculating summary statistics, it can be difficult to understand
 # the data. On the contrary, a simple graph could bring more information to our mind.
 # Adding color values for each penguin to separate the species.
-png("./plots/penguins")
+pdf("./plots/penguins", 10/2.54, 10/2.54)
 pCol <- c('#ff8301', '#bf5ccb', '#057076')
 names(pCol) <- c('Adelie', 'Chinstrap', 'Gentoo')
 plot(penguins, col = pCol[penguins$species], pch = 19, 
