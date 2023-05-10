@@ -37,9 +37,9 @@ data_plots <- ggplot(dat = data_df, aes(x = Day, y = Value )) +
        title = "Randomly generated values",
        subtitle = "grouped by day of the week")
 
-png("./plots/random_generated_value2")
+#png("./plots/random_generated_value2")
 data_plots
-dev.off()
+#dev.off()
   
   
   

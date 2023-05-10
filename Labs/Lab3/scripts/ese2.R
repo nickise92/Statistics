@@ -44,7 +44,7 @@ ggplot(data = df[1:40,], aes(x = index, y = res)) +
 plot(x = 1:n, y = pE, type="l", log = "x")
 abline(h = 1/3, col = "red")
 
-ggplot(data = df, aes(x = index, y = probE)) + geom_line() +
+ggplot(data = df, aes(x = index, y = pE)) + geom_line() +
   # horizontal line corresponding to the true probability
   geom_hline(aes(yintercept = 1/3),
             linetype = "dashed", color = "red") + 
