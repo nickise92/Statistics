@@ -3,6 +3,8 @@
 # the fill argument of the aes() function to fill the histogram area and the 
 # position = "identity" argument of the geom_histogram()). Play with the binwidth 
 # argument. Try to insert y = ..density.. in aes(). Do you notice any change?
+#install.packages("palmerpenguins")
+#install.packages("ggplot2")
 library(palmerpenguins)
 library(ggplot2)
 

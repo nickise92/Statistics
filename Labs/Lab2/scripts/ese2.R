@@ -3,6 +3,7 @@
 # create 10mm wide classes using the cut() funtcion (hint: use the range() funtcion
 # to determine the min and max values of the variable, then define a sequence for the
 # cuts).
+install.packages("ggplot2")
 library(palmerpenguins)
 library(ggplot2)
 
